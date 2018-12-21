@@ -1,0 +1,91 @@
+<view class="page">
+  <view class="page__bd">
+      <view class='weui-panel'>
+          <view class="page_hd">
+              <view>
+                <image class='me_avatar' src='../../images/qq.png'></image>
+              </view>
+              <view class="me_nickName">
+                <text>派大星</text>
+              </view>
+              <view class='me_phone'>
+               <text>159****0174</text>
+              </view>
+          </view>
+      </view>
+    
+      <view class="weui-panel">
+          <view class="weui-panel__bd">
+              <view class="weui-media-box weui-media-box_small-appmsg">
+                  <view class="weui-cells weui-cells_in-small-appmsg">
+                      <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                          <view class="weui-cell__hd"><image src='../../images/me.png' class="me-icon"></image></view>
+                          <view class="weui-cell__bd weui-cell_primary">
+                              <view>
+                              <text class='text-info'>我的信息</text>
+                              </view>
+                          </view>
+                          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                      </navigator>
+                      <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                          <view class="weui-cell__hd"><image src='../../images/group.png' class="me-icon"></image></view>
+                          <view class="weui-cell__bd weui-cell_primary">
+                              <text class='text-info'>我的组织</text>
+                          </view>
+                          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                      </navigator>
+                  </view>
+              </view>
+          </view>
+      </view>
+
+      <view class="weui-panel">
+        <view class="weui-panel__bd">
+            <view class="weui-media-box weui-media-box_small-appmsg">
+                <view class="weui-cells weui-cells_in-small-appmsg">
+                    <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                        <view class="weui-cell__hd"><image src='../../images/addTask.png' class="me-icon"></image></view>
+                        <view class="weui-cell__bd weui-cell_primary">
+                            <view>
+                            <text class='text-info'>创建任务</text>
+                            </view>
+                        </view>
+                        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                    </navigator>
+                    <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                         <view class="weui-cell__hd"><image src='../../images/createGroup.png' class="me-icon"></image></view>
+                        <view class="weui-cell__bd weui-cell_primary">
+                            <text class='text-info'>创建组织</text>
+                        </view>
+                        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                    </navigator>
+                    <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                        <view class="weui-cell__hd"><image src='../../images/addGroup.png' class="me-icon"></image></view>
+                        <view class="weui-cell__bd weui-cell_primary">
+                            <text class='text-info'>加入组织</text>
+                        </view>
+                        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                    </navigator>
+                </view>
+            </view>
+        </view>
+      </view>
+       <view class="weui-panel">
+        <view class="weui-panel__bd">
+            <view class="weui-media-box weui-media-box_small-appmsg">
+                <view class="weui-cells weui-cells_in-small-appmsg">
+                    <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                        <view class="weui-cell__hd"><image src='../../images/change.png' class="me-icon"></image></view>
+                        <view class="weui-cell__bd weui-cell_primary">
+                            <view>
+                            <text class='text-info'>切换账号</text>
+                            </view>
+                        </view>
+                        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                    </navigator>
+                </view>
+            </view>
+        </view>
+      </view>
+  </view>
+</view>

@@ -1,0 +1,11 @@
+/* pages/todo/todo.wxss */
+
+.task-text {
+  text-overflow: ellipsis;
+}
+
+.line {
+  width: 100%;
+  height: 3rpx;
+  background: #F2F2F2;
+}

@@ -1,0 +1,26 @@
+/* pages/login/login.wxss */
+
+.login-center {
+  margin: 30rpx;
+}
+.index-image {
+  width: 500rpx;
+  height: 300rpx;
+  margin-left: 120rpx; 
+  margin-top: 150rpx;
+}
+
+.wxloginBtn {
+  margin-top: 100rpx;
+  background: #FFCC33;
+  color: white;
+  font-size: 38rpx;
+}
+
+.phoneloginBtn {
+  margin-top: 30rpx;
+  background: #FFFFFF;
+  color: #FFCC33;
+  font-size: 38rpx;
+  border:1px solid #FFCC33;
+}

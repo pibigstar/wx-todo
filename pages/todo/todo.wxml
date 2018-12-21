@@ -1,0 +1,48 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-panel">
+      <view class="weui-panel__bd">
+        <navigator url="" hover-class="weui-cell_active">
+          <view class="weui-media-box weui-media-box_text">
+            <view class="weui-media-box__title weui-media-box__title_in-text">任务一</view>
+            <view class="weui-media-box__desc">
+              <text class='task-text'> 明天周六记得按时到考场考研明天周六记得按时到考场考研</text>
+            </view>
+            <view class="weui-media-box__info">
+              <view class="weui-media-box__info__meta">软件开发15-01</view>
+              <view class="weui-media-box__info__meta">2018-12-21 16:35</view>
+            </view>
+          </view>
+        </navigator>
+        <view class='line'></view>
+         <navigator url="" hover-class="weui-cell_active">
+          <view class="weui-media-box weui-media-box_text">
+            <view class="weui-media-box__title weui-media-box__title_in-text">任务三</view>
+            <view class="weui-media-box__desc">
+              <text class='task-text'> 明天周六记得按时到考场考研明天周六记得按时到考场考研</text>
+            </view>
+            <view class="weui-media-box__info">
+              <view class="weui-media-box__info__meta">软件开发15-01</view>
+              <view class="weui-media-box__info__meta">2018-12-21 16:35</view>
+            </view>
+          </view>
+        </navigator>
+        <view class='line'></view>
+         <navigator url="" hover-class="weui-cell_active">
+          <view class="weui-media-box weui-media-box_text">
+            <view class="weui-media-box__title weui-media-box__title_in-text">任务三</view>
+            <view class="weui-media-box__desc">
+              <text class='task-text'> 明天周六记得按时到考场考研明天周六记得按时到考场考研</text>
+            </view>
+            <view class="weui-media-box__info">
+              <view class="weui-media-box__info__meta">软件开发15-01</view>
+              <view class="weui-media-box__info__meta">2018-12-21 16:35</view>
+            </view>
+          </view>
+        </navigator>
+
+
+      </view>
+    </view>
+  </view>
+</view>

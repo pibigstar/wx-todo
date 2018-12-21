@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/login/login",
+    "pages/me/me",
+    "pages/todo/todo",
+    "pages/doing/doing",
+    "pages/done/done"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "todo",
+    "navigationBarBackgroundColor": "#f8f8f8",
+    "backgroundColor": "#ffffff"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "tabBar": {
+    "color": "#9B9DB1",
+    "selectedColor": "#ffcc33",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/todo/todo",
+        "iconPath": "images/tabBar/todo.png",
+        "selectedIconPath": "images/tabBar/todo-active.png",
+        "text": "todo"
+      },
+      {
+        "pagePath": "pages/doing/doing",
+        "iconPath": "images/tabBar/doing.png",
+        "selectedIconPath": "images/tabBar/doing-active.png",
+        "text": "doing"
+      },
+      {
+        "pagePath": "pages/done/done",
+        "iconPath": "images/tabBar/done.png",
+        "selectedIconPath": "images/tabBar/done-active.png",
+        "text": "done"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "iconPath": "images/tabBar/me.png",
+        "selectedIconPath": "images/tabBar/me-active.png",
+        "text": "me"
+      }
+    ]
+  },
+  "debug": true
+}

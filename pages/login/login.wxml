@@ -1,0 +1,8 @@
+<view class='login-center'>
+
+<image src='../../images/qq.png' class='index-image'></image>
+
+ <button class='wxloginBtn' open-type='getUserInfo' bindgetuserinfo='doLogin'>微信登录</button>
+  <button class='phoneloginBtn'>手机号登录/注册</button>
+
+</view>
