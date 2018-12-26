@@ -4,14 +4,14 @@
   margin: 30rpx;
 }
 .index-image {
-  width: 500rpx;
-  height: 300rpx;
-  margin-left: 120rpx; 
-  margin-top: 150rpx;
+  width: 300rpx;
+  height: 250rpx;
+  margin-left: 200rpx; 
+  margin-top: 250rpx;
 }
 
 .wxloginBtn {
-  margin-top: 100rpx;
+  margin-top: 150rpx;
   background: #FFCC33;
   color: white;
   font-size: 38rpx;

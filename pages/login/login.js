@@ -33,7 +33,7 @@ Page({
         if (res.code) {
           // 获取openId和session_key
           wx.request({
-            url: 'http://127.0.0.1:7410/wxLogin',
+            url: 'http://192.168.1.68:7410/wxLogin',
             data: {
               code: res.code
             },
