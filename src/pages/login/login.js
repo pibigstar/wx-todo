@@ -1,3 +1,4 @@
+const util = require("../../utils/util.js")
 const app = getApp()
 // pages/login/login.js
 Page({
@@ -27,30 +28,31 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-    // 请求服务器登录
+
     wx.login({
       success(res) {
         if (res.code) {
           // 获取openId和session_key
-          wx.request({
-            url: 'http://192.168.1.68:7410/wxLogin',
-            data: {
-              code: res.code
-            },
-            success: function (data) {
-              console.log(data)
-              wx.switchTab({
-                url: '/pages/todo/todo',
-              })
-            },
-            fail: function (err) {
-              console.error(err)
-            }
+          util.apiRequest("wxLogin", "post", {
+            code: res.code
+          }).then(data => {
+            console.log(data)
+            util.setToken("token", data.token);
+            wx.switchTab({
+              url: '/pages/todo/todo',
+            })
+          }).catch(err => {
+            util.showErrorMessage(err);
           })
         } else {
-          console.log('登录失败！' + res.errMsg)
+          console.log('获取code失败！' + res.errMsg)
         }
       }
     })
-  }
+  },
+  // // 请求服务器登录
+  login: function(code) {
+   
+  },
+
 })

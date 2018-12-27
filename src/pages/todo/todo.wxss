@@ -7,5 +7,5 @@
 .line {
   width: 100%;
   height: 3rpx;
-  background: #F2F2F2;
+  background: #DDDDDD;
 }

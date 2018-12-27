@@ -15,19 +15,20 @@ const formatNumber = n => {
 }
 
 var app = getApp();
-var domain = app.globalData.domain;
+var domain = app.globalData.host;
 var token;
 
 // 抽取request请求
 const apiRequest = (url, method, data) => {
+  token = getToken()
   var promise = new Promise(function (resolve, reject) {
-    token = getToken();
     wx.request({
       url: domain + url,
       data: data,
       method: method,
-      header: { "grpc-metadata-token": token, "Content-Type": "application/json" },
+      header: {"todo-token": token},
       success: function (res) {
+        console.log(res);
         if (res.statusCode === 200) {
            resolve(res.data);
         } else {
@@ -61,18 +62,37 @@ function toLogin(){
   })
 }
 // 检查是否已登录
-function checkLogin(){
-  if(getToken()===undefined){
-    toLogin();
+function isLogin(){
+  var token = wx.getStorageSync("token");
+  if (token===undefined || token ===""){
+    wx.showModal({
+      title: '提示',
+      content: '你的身份信息已过期，请重新登录',
+      success(res) {
+        if (res.confirm) {
+          toLogin();
+        }
+      }
+    })
+    return false;
   }
+  return true;
 }
 // 显示错误弹窗
-function showErrorMessage(error){
+function showError(error){
   wx.showModal({
     title: '错误',
     content: error.errormsg,
   })
 }
+// 显示错误弹窗
+function showErrorMessage(msg) {
+  wx.showModal({
+    title: '错误',
+    content: msg,
+  })
+}
+
 // 显示成功弹窗
 function showSuccessMessage(msg){
   wx.showModal({
@@ -87,7 +107,8 @@ module.exports = {
   getToken: getToken,
   setToken: setToken,
   toLogin: toLogin,
-  checkLogin: checkLogin,
+  isLogin: isLogin,
   showErrorMessage: showErrorMessage,
   formatTime: formatTime,
+  showError: showError,
 }

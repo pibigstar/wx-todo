@@ -6,7 +6,9 @@
     "pages/login/login",
     "pages/todo/todo",
     "pages/doing/doing",
-    "pages/done/done"
+    "pages/done/done",
+    "pages/group/create/group",
+    "pages/group/join/join"
   ],
   "window": {
     "navigationBarTextStyle": "black",

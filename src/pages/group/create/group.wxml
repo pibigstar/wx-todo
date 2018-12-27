@@ -1,0 +1,61 @@
+<view class='page'>
+  <view class="weui-cells__title">组织基本信息</view>
+  <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+              <view class="weui-label">组织名</view>
+          </view>
+          <view class="weui-cell__bd">
+              <input class="weui-input" bindinput='bindGroupNameInput' value='{{groupName}}' placeholder="请输入组织名称"/>
+          </view>
+      </view>
+  </view>
+  <view class="weui-cells__title">组织描述</view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+                <textarea class="weui-textarea" bindinput='bindGroupDescribeInput' value='{{groupDescribe}}' placeholder="请输入描述" style="height: 3.3em" />
+                <view class="weui-textarea-counter">0/200</view>
+            </view>
+        </view>
+    </view>
+      
+      <view class="weui-cells__title">加群验证方式</view>
+      <view class="weui-cells weui-cells_after-title">
+          <radio-group bindchange="joinGroupChange">
+              <label class="weui-cell weui-check__label" wx:for="{{joinGroupMethods}}" wx:key="value">
+                  <radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
+                  <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                      <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+                      <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
+                  </view>
+                  <view class="weui-cell__bd">{{item.name}}</view>
+              </label>
+          </radio-group>
+      </view>
+      <view hidden="{{hidden}}">
+        <view class="weui-cells__title">问题详情</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">问题</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" bindinput='bindQuestionInput' value='{{question}}' placeholder="请输入问题"/>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">答案</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" bindinput='bindAnserInput' value='{{answer}}' placeholder="请输入答案"/>
+              </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-btn-area">
+        <button class="weui-btn" type="primary" bindtap='submit'>确定</button>
+      </view>
+</view>
