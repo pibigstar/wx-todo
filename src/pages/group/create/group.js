@@ -76,6 +76,18 @@ Page({
       if (data.Code == 500) {
         util.showErrorMessage(data.Msg);
       }
+      if (data.Code == 200) {
+        wx.showToast({
+          title: '创建成功',
+          icon: 'success',
+          duration: 1000,
+        })
+        setTimeout(function(){
+          wx.switchTab({
+            url: '/pages/me/me',
+          })
+        },1000)
+      }
     }).catch(err => {
         util.showError(err);
     })

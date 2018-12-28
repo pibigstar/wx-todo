@@ -20,15 +20,8 @@ Page({
   },
 
   doLogin: function (e) {
-    var domain = app.globalData.doLogin;
     // 获取用户信息
     app.globalData.userInfo = e.detail.userInfo
-    console.log(e.detail.userInfo)
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-
     wx.login({
       success(res) {
         if (res.code) {
@@ -50,9 +43,4 @@ Page({
       }
     })
   },
-  // // 请求服务器登录
-  login: function(code) {
-   
-  },
-
 })

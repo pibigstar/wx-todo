@@ -3,10 +3,10 @@
       <view class='weui-panel'>
           <view class="page_hd">
               <view>
-                <image class='me_avatar' src='../../images/qq.png'></image>
+                <image class='me_avatar' src='{{userInfo.avatarUrl}}'></image>
               </view>
               <view class="me_nickName">
-                <text>派大星</text>
+                <text>{{userInfo.nickName}}</text>
               </view>
               <view class='me_phone'>
                <text>159****0174</text>
