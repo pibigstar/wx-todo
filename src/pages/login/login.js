@@ -25,6 +25,7 @@ Page({
     wx.login({
       success(res) {
         if (res.code) {
+          console.log("code:"+res.code);
           // 获取openId和session_key
           util.apiRequest("wxLogin", "post", {
             code: res.code

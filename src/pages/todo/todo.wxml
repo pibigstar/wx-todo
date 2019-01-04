@@ -18,50 +18,34 @@
             </view>
             <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
         </view>
-
-        <navigator url="" hover-class="weui-cell_active">
-          <view class="weui-media-box weui-media-box_text">
-            <view class="weui-media-box__title weui-media-box__title_in-text">任务一</view>
-            <view class="weui-media-box__desc">
-              <text class='task-text'> 明天周六记得按时到考场考研明天周六记得按时到考场考研</text>
+        <!--  内容 -->
+        <view class='task-item' wx:for="{{tasks}}" data-index="{{index}}" wx:key="item.id">
+         <movable-area style="width: 500rpx; height:280rpx">
+         <movable-view
+            direction="horizontal">
+            <view class="weui-media-box weui-media-box_text"  style="{{item.contentStyle}}">
+              <view class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</view>
+              <view class="weui-media-box__desc">
+                <text class='task-text'> {{item.content}}</text>
+              </view>
+              <view class="weui-media-box__info">
+                <view class="weui-media-box__info__meta">{{item.groupName}}</view>
+                <view class="weui-media-box__info__meta">{{item.time}}</view>
+              </view>
+              <!-- 小红点 -->
+              <view class="weui-badge weui-badge_dot" style="position: absolute;top: 4em;right: 0.5em;"></view>
             </view>
-            <view class="weui-media-box__info">
-              <view class="weui-media-box__info__meta">软件开发15-01</view>
-              <view class="weui-media-box__info__meta">2018-12-21 16:35</view>
-            </view>
-            <view class="weui-badge weui-badge_dot" style="position: absolute;top: 4em;right: 0.5em;"></view>
-          </view>
-        </navigator>
+        </movable-view>
+      </movable-area>
+        <!-- 左滑 -->
+        <view class="doingBtn">
+          <span data-id="{{item.id}}" bindtap="handleDeleteProduct">doing</span>
+        </view>
+        <view class="doneBtn">
+          <span data-id="{{item.id}}" bindtap="handleDeleteProduct">done</span>
+        </view>
         <view class='line'></view>
-         <navigator url="" hover-class="weui-cell_active">
-          <view class="weui-media-box weui-media-box_text">
-            <view class="weui-media-box__title weui-media-box__title_in-text">任务三</view>
-            <view class="weui-media-box__desc">
-              <text class='task-text'> 明天周六记得按时到考场考研明天周六记得按时到考场考研</text>
-            </view>
-            <view class="weui-media-box__info">
-              <view class="weui-media-box__info__meta">软件开发15-01</view>
-              <view class="weui-media-box__info__meta">2018-12-21 16:35</view>
-            </view>
-             <view class="weui-badge weui-badge_dot" style="position: absolute;top: 4em;right: 0.5em;"></view>
-          </view>
-        </navigator>
-        <view class='line'></view>
-         <navigator url="" hover-class="weui-cell_active">
-          <view class="weui-media-box weui-media-box_text">
-            <view class="weui-media-box__title weui-media-box__title_in-text">任务三</view>
-            <view class="weui-media-box__desc">
-              <text class='task-text'> 明天周六记得按时到考场考研明天周六记得按时到考场考研</text>
-            </view>
-            <view class="weui-media-box__info">
-              <view class="weui-media-box__info__meta">软件开发15-01</view>
-              <view class="weui-media-box__info__meta">2018-12-21 16:35</view>
-            </view>
-            <view class="weui-badge weui-badge_dot" hidden style="position: absolute;top: 4em;right: 0.5em;"></view>
-          </view>
-        </navigator>
-
-
+        </view>
       </view>
     </view>
   </view>

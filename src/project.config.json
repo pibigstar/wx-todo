@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -56,7 +56,20 @@
 				{
 					"id": -1,
 					"name": "create-group",
-					"pathName": "pages/group/create/group"
+					"pathName": "pages/group/create/group",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "test",
+					"pathName": "pages/test/test",
+					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "join",
+					"pathName": "pages/group/join/join",
+					"query": ""
 				}
 			]
 		}

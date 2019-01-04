@@ -9,3 +9,44 @@
   height: 3rpx;
   background: #DDDDDD;
 }
+movable-area {
+  height:280rpx;
+  width: 600rpx;
+}
+
+movable-view {
+  width: 750rpx; 
+  height:280rpx;
+  z-index: 999
+}
+.task-item {
+  position: relative;
+}
+
+.doingBtn {
+  position: absolute;
+  bottom: 0;
+  right: 150rpx; 
+  width: 150rpx;
+  height: 280rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  line-height: 120rpx;
+  background: #E66671;
+  text-align: center;
+}
+.doneBtn {
+  position: absolute;
+  bottom: 0;
+  right: 0; 
+  width: 150rpx;
+  height: 280rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  line-height: 120rpx;
+  z-index: 1;
+  background: gray;
+  text-align: center;
+}

@@ -7,7 +7,9 @@
     "pages/doing/doing",
     "pages/done/done",
     "pages/group/create/group",
-    "pages/group/join/join"
+    "pages/group/join/join",
+    "pages/test/test",
+    "pages/join/join"
   ],
   "window": {
     "navigationBarTextStyle": "black",

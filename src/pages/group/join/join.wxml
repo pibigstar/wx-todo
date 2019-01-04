@@ -1,6 +1,64 @@
-<view>
-  
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text" class="weui-search-bar__input" placeholder="组织ID" value="{{inputVal}}" focus="{{searchShowed}}" bindinput="inputTyping" />
+          <view class="weui-icon-clear" wx:if="{{searchShowed}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+         </view>
+          <label class="weui-search-bar__label" hidden="{{searchShowed}}" bindtap="showInput">
+              <icon class="weui-icon-search" type="search" size="14"></icon>
+                <view class="weui-search-bar__text">组织ID</view>
+          </label>
+        </view>
+            <view class="weui-search-bar__cancel-btn" hidden="{{!searchShowed}}" bindtap="searchGroup">搜索</view>
+        </view>
+        <view class="weui-cells searchbar-result" wx:if="{{group.groupId!=undefined}}">
+            <view class="weui-cell__bd">
+               <view class="weui-media-box weui-media-box_text">
+                    <view class="weui-media-box__title weui-media-box__title_in-text">{{group.groupName}}</view>
+                    <view class="weui-media-box__desc">{{group.groupDescribe}}</view>
+                </view>
+            </view>
 
-
-
+            <view>
+              <view wx:if="{{group.joinMethod == '1'}}" class="weui-cells__title">组织加入方式：输入秘钥</view>
+              <view wx:if="{{group.joinMethod == '2'}}" class="weui-cells__title">组织加入方式：回答问题</view>
+              <view wx:if="{{group.joinMethod == '1'}}">
+               <view class="weui-cells weui-cells_after-title">
+                 <view class="weui-cell weui-cell_input">
+                  <view class="weui-cell__hd">
+                      <view class="weui-label">秘钥</view>
+                  </view>
+                  <view class="weui-cell__bd">
+                      <input class="weui-input" placeholder="请输入秘钥"/>
+                  </view>
+                 </view>
+                </view>
+              </view>
+              <view wx:if="{{group.joinMethod == '2'}}">
+                <view class="weui-cells__title">问题：{{group.question}}</view>
+                  <view class="weui-cells weui-cells_after-title">
+                  <view class="weui-cell weui-cell_input">
+                  <view class="weui-cell__hd">
+                      <view class="weui-label">答案</view>
+                  </view>
+                  <view class="weui-cell__bd">
+                     <input class="weui-input" placeholder="请输入答案"/>
+                  </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          <view class="weui-btn-area">
+            <button class="weui-btn" type="primary" bindtap="joinGroup">加入该组织</button>
+          </view>
+        </view>
+         <view class="weui-cells no-result" wx:if="{{noResult}}">
+             <span class="info">没有该组织，请输入正确的组织ID</span>
+        </view>
+    </view>
 </view>

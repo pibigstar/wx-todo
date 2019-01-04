@@ -35,6 +35,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    host:"http://127.0.0.1:7410/",
+    host:"http://todo.free.idcfengye.com/",
+    //host:"https://127.0.0.1:7777/",
   }
 })
