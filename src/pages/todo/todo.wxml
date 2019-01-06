@@ -20,28 +20,34 @@
         </view>
         <!--  内容 -->
         <view class='task-item' wx:for="{{tasks}}" data-index="{{index}}" wx:key="item.id">
-         <movable-area style="width: 500rpx; height:280rpx">
+         <movable-area>
          <movable-view
+            inertia="true"
+            out-of-bounds="true"
             direction="horizontal">
-            <view class="weui-media-box weui-media-box_text"  style="{{item.contentStyle}}">
-              <view class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</view>
-              <view class="weui-media-box__desc">
-                <text class='task-text'> {{item.content}}</text>
+            <view class="item-wrap">
+              <view class="weui-media-box weui-media-box_text"  style="{{item.contentStyle}}">
+                <view class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</view>
+                <view class="weui-media-box__desc">
+                  <text class='task-text'> {{item.content}}</text>
+                </view>
+                <view class="weui-media-box__info">
+                  <view class="weui-media-box__info__meta">{{item.groupName}}</view>
+                  <view class="weui-media-box__info__meta">{{item.time}}</view>
+                </view>
+                <!-- 小红点 -->
+                <view class="weui-badge weui-badge_dot" style="position: absolute;top: 4em;right: 0.5em;"></view>
               </view>
-              <view class="weui-media-box__info">
-                <view class="weui-media-box__info__meta">{{item.groupName}}</view>
-                <view class="weui-media-box__info__meta">{{item.time}}</view>
-              </view>
-              <!-- 小红点 -->
-              <view class="weui-badge weui-badge_dot" style="position: absolute;top: 4em;right: 0.5em;"></view>
             </view>
         </movable-view>
       </movable-area>
         <!-- 左滑 -->
-        <view class="doingBtn">
+        <view class="doingBtn" data-id="{{item.id}}" data-type="doing" bindtap="changeStatus">
+          <image src='../../images/tabBar/doing.png'></image>
           <span data-id="{{item.id}}" bindtap="handleDeleteProduct">doing</span>
         </view>
-        <view class="doneBtn">
+        <view class="doneBtn" data-id="{{item.id}}"  data-type="done" bindtap="changeStatus">
+          <image src='../../images/tabBar/done.png'></image>
           <span data-id="{{item.id}}" bindtap="handleDeleteProduct">done</span>
         </view>
         <view class='line'></view>

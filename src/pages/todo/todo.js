@@ -51,4 +51,11 @@ Page({
       inputVal: e.detail.value
     });
   },
+
+  changeStatus: function(e) {
+    let id = e.currentTarget.dataset.id;
+    let type = e.currentTarget.dataset.type;
+    console.log("id:"+id+"type:"+type);
+  }
+
 })

@@ -35,7 +35,9 @@ App({
   },
   globalData: {
     userInfo: null,
-    host:"http://todo.free.idcfengye.com/",
+    //host:"https://todo.pibigstar.com:7777/",
     //host:"https://127.0.0.1:7777/",
+    //host:"http://todo.free.idcfengye.com/"
+    host: "https:/192.168.1.69:7410/",
   }
 })
