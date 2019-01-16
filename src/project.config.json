@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 6,
 			"list": [
 				{
 					"id": -1,
@@ -70,6 +70,11 @@
 					"name": "join",
 					"pathName": "pages/group/join/join",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "task",
+					"pathName": "pages/task/create/task"
 				}
 			]
 		}

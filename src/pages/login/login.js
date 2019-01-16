@@ -36,7 +36,7 @@ Page({
               url: '/pages/todo/todo',
             })
           }).catch(err => {
-            util.showErrorMessage(err);
+            util.showError(err);
           })
         } else {
           console.log('获取code失败！' + res.errMsg)

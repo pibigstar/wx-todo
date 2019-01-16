@@ -1,5 +1,5 @@
 <view>
- <form bindsubmit="templateSend" report-submit="true">
+<form bindsubmit="templateSend" report-submit="true">
       <button type='primary' formType="submit" size='mini'>发送模板消息</button>
-    </form>
+</form>
 </view>

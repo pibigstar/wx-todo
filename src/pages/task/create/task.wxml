@@ -1,0 +1,79 @@
+<view class='page'>
+  <view class="page__bd">
+    <view class="weui-cells__title">任务基本信息</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+              <view class="weui-label">任务标题</view>
+          </view>
+          <view class="weui-cell__bd">
+              <input class="weui-input" placeholder="请输入标题"/>
+          </view>
+      </view>
+    </view>
+    <view class="weui-cells__title">任务描述</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <textarea class="weui-textarea" placeholder="请输入描述" style="height: 3.3em" />
+            <view class="weui-textarea-counter">0/200</view>
+          </view>
+        </view>
+      </view>
+
+    <view class="weui-cells__title">任务其他信息</view>
+    <view class="weui-cell weui-cell_select">
+      <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <view class="weui-label">组织</view>
+      </view>
+      <view class="weui-cell__bd">
+          <picker bindchange="bindGroupChange" value="{{groupIndex}}" range="{{groups}}">
+            <view class="weui-select weui-select_in-select-after">{{groups[groupIndex]}}</view>
+          </picker>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_select">
+      <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <view class="weui-label">指派</view>
+      </view>
+      <view class="weui-cell__bd">
+        <picker bindchange="bindMemberChange" value="{{memberIndex}}" range="{{members}}">
+          <view class="weui-select weui-select_in-select-after">{{members[memberIndex]}}</view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="weui-cell weui-cell_select">
+      <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <view class="weui-label">截止日期</view>
+      </view>
+      <view class="weui-cell__bd">
+        <picker 
+          bindchange="bindEndTimeChange" 
+          mode="date"
+          value="{{endTime}}"
+        >
+          <view class="weui-select weui-select_in-select-after">{{endTime}}</view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_switch">
+        <view class="weui-cell__bd">任务提醒</view>
+        <view class="weui-cell__ft">
+            <switch checked />
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_switch">
+        <view class="weui-cell__bd">任务完成后提醒我</view>
+        <view class="weui-cell__ft">
+            <switch checked />
+        </view>
+      </view>
+    </view>
+    <button class="weui-btn" type='primary' style='width:90%' plain="true">创建任务</button>
+  </view>
+</view>
