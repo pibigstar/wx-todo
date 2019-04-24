@@ -34,7 +34,7 @@
                       <view class="weui-label">秘钥</view>
                   </view>
                   <view class="weui-cell__bd">
-                      <input class="weui-input" placeholder="请输入秘钥"/>
+                    <input class="weui-input" bindinput='inputGroupCode' value='{{ groupCode }}' placeholder="请输入秘钥"/>
                   </view>
                  </view>
                 </view>
@@ -47,7 +47,7 @@
                       <view class="weui-label">答案</view>
                   </view>
                   <view class="weui-cell__bd">
-                     <input class="weui-input" placeholder="请输入答案"/>
+                     <input class="weui-input" bindinput='inputAnswer' value='{{answer}}' placeholder="请输入答案"/>
                   </view>
                   </view>
                 </view>

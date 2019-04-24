@@ -5,6 +5,8 @@ Page({
     inputVal: "",
     group: {},
     noResult: false,
+    answer: "",
+    groupCode: "",
   },
 
   showInput: function () {
@@ -24,35 +26,62 @@ Page({
       inputVal: e.detail.value
     });
   },
+  inputAnswer: function (e) {
+    this.setData({
+      answer: e.detail.value
+    })
+  },
 
- searchGroup: function () {
-   let groupID = this.data.inputVal;
-   if(groupID == "") {
-     wx.showToast({
-       title: '组织ID不能为空',
-       icon: 'none',
-       duration: 2000
-     })
-     return false;
-   }
-   util.apiRequest("group/search","get",{
-     groupId: groupID,
-   }).then(data => {
-     if(data.Code==200) {
-       this.setData({
-         group: data.Data,
-       })
-     } else {
-       this.setData({
-         noResult: true,
-       })
-     }
-     
-   })
- },
-  joinGroup: function() {
-    
-  }
+  inputGroupCode: function (e) {
+    this.setData({
+      groupCode: e.detail.value
+    })
+  },
+
+
+  // 查找组织
+  searchGroup: function () {
+    let groupID = this.data.inputVal;
+    if (groupID == "") {
+      wx.showToast({
+        title: '组织ID不能为空',
+        icon: 'none',
+        duration: 2000
+      })
+      return false;
+    }
+    util.apiRequest("group/search", "get", {
+      groupId: groupID,
+    }).then(data => {
+      if (data.Code == 200) {
+        this.setData({
+          group: data.Data,
+        })
+      } else {
+        this.setData({
+          noResult: true,
+        })
+      }
+
+    })
+  },
+
+  // 加群
+  joinGroup: function () {
+    let group = this.data.group;
+    let { answer, groupCode } = this.data;
+    util.apiRequest("group/join", "post", {
+      groupId: group.groupId,
+      joinMethod: group.joinMethod,
+      answer: answer,
+      groupCode: groupCode,
+    }).then(data => {
+      if (data.Code == 200) {
+        console.log("加入成功")
+      }
+    })
+  },
+
 
 
 });
