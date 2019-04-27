@@ -74,6 +74,6 @@
         </view>
       </view>
     </view>
-    <button class="weui-btn" type='primary' style='width:90%' plain="true">创建任务</button>
+    <button class="weui-btn" bindtap='createTask' type='primary' style='width:90%' plain="true">创建任务</button>
   </view>
 </view>

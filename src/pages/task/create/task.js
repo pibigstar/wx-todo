@@ -4,7 +4,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    groups: ["请选择"],
+    title: "",
+    content: "",
+    isRemind: true,
+    remindAfterFin: true,
+    groups: [],
     members: [],
     memberObjects: [],
     groupObjects: [],
@@ -51,6 +55,7 @@ Page({
       })
     }
   },
+  // 指派人下拉框改变
   bindMemberChange: function(e){
     let index = e.detail.value;
     this.setData({
@@ -61,6 +66,10 @@ Page({
     this.setData({
       assign: user.UserID
     })
+  },
+  // 截止日期下拉框改变
+  bindEndTimeChange: function(e){
+
   },
 
   // 解析group对象
@@ -86,6 +95,29 @@ Page({
     }
     this.setData({
       members: members,
+    })
+  },
+
+  // 任务创建
+  createTask: function(){
+    let { title,contnet,isRemind,remindAfterFin,groupIndex,memberIndex,groupObjects,assign,endTime } = this.data;
+    if(title == ""){
+      util.showErrorMessage("标题不能为空")
+      return;
+    }
+    let groupId = memberObjects[groupIndex].ID
+    util.apiRequest("task/create","post",{
+      "title": title,
+      "content": content,
+      "isRemind": isRemind,
+      "remindAfterFin": remindAfterFin,
+      "userId": assign,
+      "groupId": groupId,
+      "endTime": endTime,
+    }).then(data => {
+      util.showSuccessMessage("创建成功");
+    }).cathc(err => {
+
     })
   },
 })
