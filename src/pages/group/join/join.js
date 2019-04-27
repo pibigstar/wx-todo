@@ -42,6 +42,10 @@ Page({
   // 查找组织
   searchGroup: function () {
     let groupID = this.data.inputVal;
+    this.setData({
+      group: null,
+      noResult:false
+    })
     if (groupID == "") {
       wx.showToast({
         title: '组织ID不能为空',
@@ -62,7 +66,6 @@ Page({
           noResult: true,
         })
       }
-
     })
   },
 

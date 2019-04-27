@@ -4,66 +4,85 @@ Page({
    * 页面的初始数据
    */
   data: {
-    members: ["派大星","海绵宝宝","章鱼哥"],
+    groups: ["请选择"],
+    members: [],
     memberObjects: [],
-    memberIndex: 0,
-    groups: ["组织一", "组织二", "组织三"],
     groupObjects: [],
-    groupIndex: 0,
-    endTime: '2019-01-15'
+    memberIndex: -1,
+    groupIndex: -1,
+    endTime: '2019-01-15',
+    assign: "",
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     // 页面一加载就拿取该用户下的组织
     util.apiRequest("group/list", "get",{}).then(data => {
-      console.log(data);
       this.setData({
-        groupObjects: data.data,
-      });
-      parseGroupObject(data.data);
+        groupObjects: data.Data.createGroups,
+      })
+      this.parseGroupObject(data.Data.createGroups);
     }).catch(err => {
       util.showError(err);
     })
   },
+
   // 组织下拉框改变
   bindGroupChange: function(e){
-    console.log(e.detail.value);
-    let group = this.groupObjects[e.detail.value];
+    let index = e.detail.value;
+    this.setData({
+      groupIndex: index
+    })
+    let { groupObjects } = this.data;
+    let group = groupObjects[index];
     if(group!=null){
       // 拿取该组织下的用户
       util.apiRequest("group/members", "get", {
-        "groupId":group.id
+        "groupId":group.ID
       }).then(data=>{
         console.log(data);
         this.setData({
-          memberObjects: data.data,
+          memberObjects: data.Data,
         });
-        parseMemberObject(data.data);
+        this.parseMemberObject(data.Data);
       }).catch(err=>{
         util.showError(err);
       })
     }
   },
+  bindMemberChange: function(e){
+    let index = e.detail.value;
+    this.setData({
+      memberIndex: index
+    })
+    let { memeberObjects } = this.data
+    let user = memeberObjects[index]
+    this.setData({
+      assign: user.UserID
+    })
+  },
+
+  // 解析group对象
   parseGroupObject: function(objs){
     var groups = [];
     var groupObject;
     for(var i=0;i<objs.length;i++){
       groupObject = objs[i];
-      groups[i] = groupObject.name;
+      groups[i] = groupObject.GroupName;
     }
     this.setData({
       groups: groups,
     })
   },
+
+  // 解析成员对象
   parseMemberObject: function (objs) {
     var members = [];
     var memberObject;
     for (var i = 0; i < objs.length; i++) {
       memberObject = objs[i];
-      members[i] = memberObject.name;
+      members[i] = memberObject.UserName;
     }
     this.setData({
       members: members,

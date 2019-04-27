@@ -16,6 +16,8 @@
         </view>
             <view class="weui-search-bar__cancel-btn" hidden="{{!searchShowed}}" bindtap="searchGroup">搜索</view>
         </view>
+
+        <!-- 搜索结果展示 -->
         <view class="weui-cells searchbar-result" wx:if="{{group.groupId!=undefined}}">
             <view class="weui-cell__bd">
                <view class="weui-media-box weui-media-box_text">
@@ -57,7 +59,8 @@
             <button class="weui-btn" type="primary" bindtap="joinGroup">加入该组织</button>
           </view>
         </view>
-         <view class="weui-cells no-result" wx:if="{{noResult}}">
+        <!-- 没有结果提醒 -->
+         <view class="no-result" wx:if="{{noResult}}">
              <span class="info">没有该组织，请输入正确的组织ID</span>
         </view>
     </view>
