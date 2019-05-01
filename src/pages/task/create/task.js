@@ -16,6 +16,7 @@ Page({
     groupIndex: -1,
     endTime: '2019-01-15',
     assign: "",
+    isAll: false,
   },
   /**
    * 生命周期函数--监听页面加载
@@ -49,7 +50,9 @@ Page({
         this.setData({
           memberObjects: data.Data,
         });
-        this.parseMemberObject(data.Data);
+        if(data.Data != null){
+          this.parseMemberObject(data.Data);
+        }
       }).catch(err=>{
         util.showError(err);
       })
@@ -61,15 +64,28 @@ Page({
     this.setData({
       memberIndex: index
     })
-    let { memeberObjects } = this.data
-    let user = memeberObjects[index]
+    let { memberObjects } = this.data
+    let user = memberObjects[index]
     this.setData({
       assign: user.UserID
     })
   },
   // 截止日期下拉框改变
   bindEndTimeChange: function(e){
-
+    this.setData({
+      endTime: e.detail.value
+    })
+  },
+  // 标题改变
+  bindTitleInput: function(e){
+    this.setData({
+      title: e.detail.value
+    })
+  },
+  bindContentInput: function(e){
+    this.setData({
+      content: e.detail.value
+    })
   },
 
   // 解析group对象
@@ -100,24 +116,44 @@ Page({
 
   // 任务创建
   createTask: function(){
-    let { title,contnet,isRemind,remindAfterFin,groupIndex,memberIndex,groupObjects,assign,endTime } = this.data;
+    let { title, isAll, content, isRemind, remindAfterFin, groupIndex,
+     memberIndex, groupObjects,memberObjects,assign,endTime } = this.data;
     if(title == ""){
       util.showErrorMessage("标题不能为空")
       return;
     }
-    let groupId = memberObjects[groupIndex].ID
+    let groupId = groupObjects[groupIndex].ID;
+    let groupName = groupObjects[groupIndex].GroupName;
+    let appointTo = new Object();
+    let exercisers = new Array();
+    exercisers[0] = assign;
+    appointTo.isAll = isAll;
+    appointTo.exercisers = exercisers;
+    let appointToStr = JSON.stringify(appointTo);
     util.apiRequest("task/create","post",{
-      "title": title,
-      "content": content,
+      "taskTitle": title,
+      "taskContent": content,
       "isRemind": isRemind,
       "remindAfterFin": remindAfterFin,
-      "userId": assign,
+      "appointTo": appointToStr,
       "groupId": groupId,
-      "endTime": endTime,
+      "groupName": groupName,
+      "completionTime": endTime,
     }).then(data => {
-      util.showSuccessMessage("创建成功");
-    }).cathc(err => {
-
+      console.log(data)
+      wx.showModal({
+        title: '提示',
+        content: '创建成功',
+        success: function(res){
+          if(res.confirm){
+            wx.switchTab({
+              url: '/pages/todo/todo',
+            })
+          }
+        }
+      })
+    }).catch(err => {
+      util.showErrorMessage("创建失败")
     })
   },
 })

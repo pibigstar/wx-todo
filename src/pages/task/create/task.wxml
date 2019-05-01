@@ -7,7 +7,7 @@
               <view class="weui-label">任务标题</view>
           </view>
           <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="请输入标题"/>
+              <input class="weui-input" bindinput='bindTitleInput' placeholder="请输入标题"/>
           </view>
       </view>
     </view>
@@ -15,7 +15,8 @@
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell">
           <view class="weui-cell__bd">
-            <textarea class="weui-textarea" placeholder="请输入描述" style="height: 3.3em" />
+            <textarea class="weui-textarea" 
+                      bindinput='bindContentInput' placeholder="请输入描述" style="height: 3.3em" />
             <view class="weui-textarea-counter">0/200</view>
           </view>
         </view>

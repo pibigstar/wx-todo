@@ -4,7 +4,8 @@
       <view class="weui-search-bar__form">
         <view class="weui-search-bar__box">
           <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-          <input type="text" class="weui-search-bar__input" placeholder="组织ID" value="{{inputVal}}" focus="{{searchShowed}}" bindinput="inputTyping" />
+          <input type="text" class="weui-search-bar__input" 
+                 placeholder="组织ID" value="{{inputVal}}" focus="{{searchShowed}}" bindinput="inputTyping" />
           <view class="weui-icon-clear" wx:if="{{searchShowed}}" bindtap="clearInput">
             <icon type="clear" size="14"></icon>
           </view>

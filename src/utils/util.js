@@ -109,6 +109,7 @@ module.exports = {
   toLogin: toLogin,
   isLogin: isLogin,
   showErrorMessage: showErrorMessage,
+  showSuccessMessage: showSuccessMessage,
   formatTime: formatTime,
   showError: showError,
 }

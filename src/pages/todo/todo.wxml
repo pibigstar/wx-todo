@@ -1,22 +1,21 @@
 <view class="page">
   <view class="page__bd">
-    <view class="weui-panel">
-      <view class="weui-panel__bd">
-          <view class="weui-search-bar">
-            <view class="weui-search-bar__form">
-                <view class="weui-search-bar__box">
-                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-                    <input class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
-                    <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
-                        <icon type="clear" size="14"></icon>
-                    </view>
-                </view>
-                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
-                    <icon class="weui-icon-search" type="search" size="14"></icon>
-                    <view class="weui-search-bar__text">搜索</view>
-                </label>
-            </view>
-            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text" class="weui-search-bar__input" 
+                 placeholder="标题" value="{{inputVal}}" focus="{{searchShowed}}" bindinput="inputTyping" />
+          <view class="weui-icon-clear" wx:if="{{searchShowed}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+         </view>
+          <label class="weui-search-bar__label" hidden="{{searchShowed}}" bindtap="showInput">
+              <icon class="weui-icon-search" type="search" size="14"></icon>
+                <view class="weui-search-bar__text">标题</view>
+          </label>
+        </view>
+            <view class="weui-search-bar__cancel-btn" hidden="{{!searchShowed}}" bindtap="searchTask">搜索</view>
         </view>
         <!--  内容 -->
         <view class='task-item' wx:for="{{tasks}}" data-index="{{index}}" wx:key="item.id">
@@ -36,7 +35,10 @@
                   <view class="weui-media-box__info__meta">{{item.time}}</view>
                 </view>
                 <!-- 小红点 -->
-                <view class="weui-badge weui-badge_dot" style="position: absolute;top: 4em;right: 0.5em;"></view>
+                <view wx:if="{{!item.isRead}}">
+                  <view  class="weui-badge weui-badge_dot" 
+                      style="position: absolute;top: 4em;left: 700rpx;"></view>
+                </view>
               </view>
             </view>
         </movable-view>
@@ -52,7 +54,5 @@
         </view>
         <view class='line'></view>
         </view>
-      </view>
-    </view>
-  </view>
+   </view>
 </view>

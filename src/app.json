@@ -9,7 +9,6 @@
     "pages/group/create/group",
     "pages/group/join/join",
     "pages/test/test",
-    "pages/join/join",
     "pages/task/create/task",
     "pages/task/detail/detail"
   ],
