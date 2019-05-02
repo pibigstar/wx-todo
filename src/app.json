@@ -10,8 +10,8 @@
     "pages/group/join/join",
     "pages/task/create/task",
     "pages/task/detail/detail",
-    "pages/test/charts",
-    "pages/test/charts/charts"
+    "pages/test/charts/charts",
+    "pages/test/template/template"
   ],
   "window": {
     "navigationBarTextStyle": "black",
