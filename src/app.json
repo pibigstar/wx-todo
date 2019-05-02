@@ -8,9 +8,10 @@
     "pages/done/done",
     "pages/group/create/group",
     "pages/group/join/join",
-    "pages/test/test",
     "pages/task/create/task",
-    "pages/task/detail/detail"
+    "pages/task/detail/detail",
+    "pages/test/charts",
+    "pages/test/charts/charts"
   ],
   "window": {
     "navigationBarTextStyle": "black",

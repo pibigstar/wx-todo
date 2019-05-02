@@ -35,7 +35,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -63,10 +63,11 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "test",
-					"pathName": "pages/test/test",
-					"query": ""
+					"id": 4,
+					"name": "chart-line",
+					"pathName": "pages/test/charts/charts",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": 5,
