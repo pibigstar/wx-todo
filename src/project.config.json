@@ -35,7 +35,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": 8,
 			"list": [
 				{
 					"id": -1,
@@ -56,10 +56,11 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "create-group",
+					"id": 3,
+					"name": "group-create",
 					"pathName": "pages/group/create/group",
-					"query": ""
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
@@ -74,9 +75,25 @@
 					"query": ""
 				},
 				{
+					"id": 6,
+					"name": "task-create",
+					"pathName": "pages/task/create/task",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 7,
+					"name": "task-detail",
+					"pathName": "pages/task/detail/detail",
+					"query": "",
+					"scene": null
+				},
+				{
 					"id": -1,
-					"name": "task",
-					"pathName": "pages/task/create/task"
+					"name": "doing",
+					"pathName": "pages/doing/doing",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

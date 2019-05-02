@@ -18,22 +18,24 @@
             <view class="weui-search-bar__cancel-btn" hidden="{{!searchShowed}}" bindtap="searchTask">搜索</view>
         </view>
         <!--  内容 -->
-        <view class='task-item' wx:for="{{tasks}}" data-index="{{index}}" wx:key="item.id">
+        <view class='task-item' bindtap='toDetail' wx:for="{{tasks}}" data-index="{{index}}" wx:key="item.id">
+
          <movable-area>
          <movable-view
             inertia="true"
             out-of-bounds="true"
             direction="horizontal">
+            <navigator url="/pages/task/detail/detail?id={{item.id}}">
             <view class="item-wrap">
-              <view class="weui-media-box weui-media-box_text"  style="{{item.contentStyle}}">
-                <view class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</view>
-                <view class="weui-media-box__desc">
-                  <text class='task-text'> {{item.content}}</text>
-                </view>
-                <view class="weui-media-box__info">
-                  <view class="weui-media-box__info__meta">{{item.groupName}}</view>
-                  <view class="weui-media-box__info__meta">{{item.time}}</view>
-                </view>
+                <view class="weui-media-box weui-media-box_text"  style="{{item.contentStyle}}">
+                  <view class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</view>
+                  <view class="weui-media-box__desc">
+                    <text class='task-text'> {{item.content}}</text>
+                  </view>
+                  <view class="weui-media-box__info">
+                    <view class="weui-media-box__info__meta">{{item.groupName}}</view>
+                    <view class="weui-media-box__info__meta">{{item.time}}</view>
+                  </view>
                 <!-- 小红点 -->
                 <view wx:if="{{!item.isRead}}">
                   <view  class="weui-badge weui-badge_dot" 
@@ -41,8 +43,10 @@
                 </view>
               </view>
             </view>
+             </navigator>
         </movable-view>
       </movable-area>
+       
         <!-- 左滑 -->
         <view class="doingBtn" data-id="{{item.id}}" data-type="doing" bindtap="changeStatus">
           <image src='../../images/tabBar/doing.png'></image>

@@ -26,11 +26,7 @@ Page({
     unReadNum: 0,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    // 页面进入，获取todo列表
+  onShow: function(){
     let status = this.data.status;
     this.listTask("", status);
   },
@@ -67,9 +63,16 @@ Page({
         index: status,
         text: "" + data.Data.unReadNum,
       })
+      // 如果为0，去除未读标识
+      if(data.Data.unReadNum == 0){
+        wx.removeTabBarBadge({
+          index: status
+        })
+      }
+
     })
   },
-
+  // 搜索任务
   searchTask: function(){
     let { searchWord, status } = this.data;
     if(searchWord == ""){
@@ -90,7 +93,7 @@ Page({
        this.listTask("",status);
     })
   },
-
+  // 根据文字获取状态值
   getStatus: function(type){
     let status = this.data.status;
     if (type == "doing") {
@@ -103,15 +106,7 @@ Page({
       status = 0;
     }
     return status;
-  }
-
+  },
  
-
-
-
-
-
-
-
 
 })

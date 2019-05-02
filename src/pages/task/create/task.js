@@ -47,6 +47,13 @@ Page({
         "groupId":group.ID
       }).then(data=>{
         console.log(data);
+        if(data.Data.length == 0){
+          wx.showToast({
+            title: '该组织下无成员',
+            icon: 'none',
+            duration: 2000
+          })
+        }
         this.setData({
           memberObjects: data.Data,
         });
@@ -118,6 +125,9 @@ Page({
   createTask: function(){
     let { title, isAll, content, isRemind, remindAfterFin, groupIndex,
      memberIndex, groupObjects,memberObjects,assign,endTime } = this.data;
+    if(memberIndex == -1){
+      isAll = true;
+    }
     if(title == ""){
       util.showErrorMessage("标题不能为空")
       return;

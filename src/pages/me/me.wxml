@@ -43,7 +43,7 @@
         <view class="weui-panel__bd">
             <view class="weui-media-box weui-media-box_small-appmsg">
                 <view class="weui-cells weui-cells_in-small-appmsg">
-                    <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                    <navigator url="../task/create/task" class="weui-cell weui-cell_access">
                         <view class="weui-cell__hd"><image src='../../images/addTask.png' class="me-icon"></image></view>
                         <view class="weui-cell__bd weui-cell_primary">
                             <view>
@@ -52,14 +52,14 @@
                         </view>
                         <view class="weui-cell__ft weui-cell__ft_in-access"></view>
                     </navigator>
-                    <navigator url="../group/create/group" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                    <navigator url="../group/create/group" class="weui-cell weui-cell_access">
                          <view class="weui-cell__hd"><image src='../../images/createGroup.png' class="me-icon"></image></view>
                         <view class="weui-cell__bd weui-cell_primary">
                             <text class='text-info'>创建组织</text>
                         </view>
                         <view class="weui-cell__ft weui-cell__ft_in-access"></view>
                     </navigator>
-                    <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                    <navigator url="../group/join/join" class="weui-cell weui-cell_access">
                         <view class="weui-cell__hd"><image src='../../images/addGroup.png' class="me-icon"></image></view>
                         <view class="weui-cell__bd weui-cell_primary">
                             <text class='text-info'>加入组织</text>

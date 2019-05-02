@@ -1,66 +1,98 @@
-// pages/done/done.js
+const util = require("../../utils/util.js")
+const app = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    searchWord: "",
+    searchShowed: false,
+    status: 2,// 状态，todo为0，doing为1
+    tasks: [
+      {
+        id: 0,
+        title: "任务一",
+        content: "明天周六记得按时到考场考研明天周六记得按时到考场考研",
+        groupName: "软件开发15-01",
+        time: "2018-12-21 16:35",
+        isRead: false,
+      },
+      {
+        id: 1,
+        title: "任务二",
+        content: "明天周六记得按时到考场考研明天周六记得按时到考场考研",
+        groupName: "软件开发15-01",
+        time: "2018-12-21 16:35",
+        isRead: false,
+      },
+    ],
+    unReadNum: 0,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
-  
+    let status = this.data.status;
+    this.listTask("", status);
+  },
+  // 搜索框JS显示控制逻辑
+  showInput: function () {
+    this.setData({
+      searchShowed: true
+    });
+  },
+  clearInput: function () {
+    this.setData({
+      searchWord: "",
+      searchShowed: false,
+    });
+    let status = this.data.status;
+    this.listTask("", status);
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
+  inputTyping: function (e) {
+    this.setData({
+      searchWord: e.detail.value
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
+  // 查询task
+  listTask: function (title, status) {
+    util.apiRequest("task/list", "get", { "title": title, "status": status }).then(data => {
+      console.log(data)
+      this.setData({
+        tasks: data.Data.tasks,
+      })
+    })
+  },
+  // 搜索任务
+  searchTask: function () {
+    let { searchWord, status } = this.data;
+    if (searchWord == "") {
+      util.showErrorMessage("搜索标题不能为空");
+      return;
+    }
+    this.listTask(searchWord, status);
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
+  // 改变状态
+  changeStatus: function (e) {
+    let id = e.currentTarget.dataset.id;
+    let type = e.currentTarget.dataset.type;
+    let status = this.getStatus(type)
+    console.log("id:" + id + "status:" + status);
+    util.apiRequest("task/changeStatus", "post", { "id": id, "status": status }).then(data => {
+      let status = this.data.status;
+      this.listTask("", status);
+    })
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
+  // 根据文字获取状态值
+  getStatus: function (type) {
+    let status = this.data.status;
+    if (type == "doing") {
+      status = 1;
+    } else if (type == "done") {
+      status = 2;
+    } else if (type == "close") {
+      status = 3;
+    } else if (type == "todo") {
+      status = 0;
+    }
+    return status;
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
 })
