@@ -19,8 +19,19 @@ var domain = app.globalData.host;
 var token;
 
 // 抽取request请求
-const apiRequest = (url, method, data) => {
+const apiRequest = (url, method, data, formId) => {
   token = getToken()
+  if(formId!=null && formId!=""){
+    wx.request({
+      url: domain + "collect",
+      data: { "formId": formId },
+      method: "post",
+      header: { "todo-token": token },
+      success: function (res) {
+        console.log("收集formId成功" + formId);
+      }
+    })
+  }
   var promise = new Promise(function (resolve, reject) {
     wx.request({
       url: domain + url,

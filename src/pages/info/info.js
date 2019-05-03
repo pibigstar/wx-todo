@@ -8,8 +8,8 @@ Page({
     countryCodes: ["+86", "+80", "+84", "+87"],
     countryCodeIndex: 0,
     radioItems: [
-      { name: '男', value: '0', checked: true },
-      { name: '女', value: '1',  }
+      { name: '男', value: '1', checked: true },
+      { name: '女', value: '2',  }
     ],
     user: null,
     nickName: "",
@@ -98,7 +98,7 @@ Page({
     }
   },
   // 更新用户信息
-  updateUsserInfo: function(){
+  updateUsserInfo: function(e){
     let { nickName,realName,gender,phone,receiveRemind } = this.data;
     if(nickName == ""){
       util.showErrorMessage("昵称不能为空");
@@ -109,7 +109,7 @@ Page({
       "realName": realName,
       "gender": gender,
       "phone": phone,
-    }).then(data => {
+    }, e.detail.formId).then(data => {
       if (data.Code == 200) {
         util.showSuccessMessage("更新成功");
       }
