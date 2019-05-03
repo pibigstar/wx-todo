@@ -1,0 +1,66 @@
+<view class='page'>
+  <view class="page__bd">
+
+    <view class="weui-cells__title">个人昵称</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+              <view class="weui-label">昵称：</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" value='{{nickName}}' bindinput='bindNickNameInput' placeholder="请输入昵称"/>
+          </view>
+      </view>
+    </view>
+
+    <view class="weui-cells__title">真实姓名</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">姓名：</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" value='{{realName}}' bindinput='bindRealNameInput' placeholder="请输入姓名"/>
+          </view>
+        </view>
+      </view>
+
+        <view class="weui-cells__title">性别</view>
+        <view class="weui-cells weui-cells_after-title">
+            <radio-group bindchange="radioChange">
+                <label class="weui-cell weui-check__label" wx:for="{{radioItems}}" wx:key="value">
+                    <radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
+                    <view class="weui-cell__bd">{{item.name}}</view>
+                    <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
+                        <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
+                    </view>
+                </label>
+            </radio-group>
+        </view>
+
+      <view class="weui-cells__title">手机号</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_select">
+              <view class="weui-cell__hd" style="width: 105px">
+                  <picker bindchange="bindCountryCodeChange" value="{{countryCodeIndex}}" range="{{countryCodes}}">
+                      <view class="weui-select">{{countryCodes[countryCodeIndex]}}</view>
+                  </picker>
+                </view>
+                <view class="weui-cell__bd weui-cell__bd_in-select-before">
+                  <input class="weui-input" bindinput='bindPhoneInput' value='{{phone}}' placeholder="请输入号码" />
+                </view>
+            </view>
+      </view>
+
+    <view class="weui-cells__title">任务提醒</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_switch">
+        <view class="weui-cell__bd">接收任务提醒</view>
+        <view class="weui-cell__ft">
+            <switch bindchange='receiveRemindChange' checked />
+        </view>
+      </view>
+    </view>
+    <button class="weui-btn" bindtap='updateUsserInfo' type='primary' style='width:90%' plain="true">更新信息</button>
+  </view>
+</view>

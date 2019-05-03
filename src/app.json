@@ -11,7 +11,9 @@
     "pages/task/create/task",
     "pages/task/detail/detail",
     "pages/test/charts/charts",
-    "pages/test/template/template"
+    "pages/test/template/template",
+    "pages/info/info",
+    "pages/group/list/list"
   ],
   "window": {
     "navigationBarTextStyle": "black",
