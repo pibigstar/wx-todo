@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/me/me",
-    "pages/logs/logs",
     "pages/login/login",
     "pages/todo/todo",
+    "pages/me/me",
+    "pages/logs/logs",
     "pages/doing/doing",
     "pages/done/done",
     "pages/group/create/group",
