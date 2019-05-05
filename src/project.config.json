@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -45,7 +45,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 10,
+			"current": 13,
 			"list": [
 				{
 					"id": -1,
@@ -117,6 +117,27 @@
 					"id": -1,
 					"name": "group-list",
 					"pathName": "pages/group/list/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "group-detail",
+					"pathName": "pages/group/detail/detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "data",
+					"pathName": "pages/task/data/data",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "login-phone",
+					"pathName": "pages/login/phone/phone",
 					"query": "",
 					"scene": null
 				}

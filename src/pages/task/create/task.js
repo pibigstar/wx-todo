@@ -14,7 +14,7 @@ Page({
     groupObjects: [],
     memberIndex: -1,
     groupIndex: -1,
-    endTime: '2019-01-15',
+    endTime: '2019-06-15',
     assign: "",
     isAll: false,
   },
@@ -135,17 +135,18 @@ Page({
     let groupId = groupObjects[groupIndex].ID;
     let groupName = groupObjects[groupIndex].GroupName;
     let appointTo = new Object();
-    let exercisers = new Array();
-    exercisers[0] = assign;
+    // let exercisers = new Array();
+    // exercisers[0] = assign;
     appointTo.isAll = isAll;
-    appointTo.exercisers = exercisers;
+    appointTo.exerciser = assign;
     let appointToStr = JSON.stringify(appointTo);
     util.apiRequest("task/create","post",{
       "taskTitle": title,
       "taskContent": content,
       "isRemind": isRemind,
       "remindAfterFin": remindAfterFin,
-      "appointTo": appointToStr,
+      "isAll": isAll,
+      "assign": assign,
       "groupId": groupId,
       "groupName": groupName,
       "completionTime": endTime,

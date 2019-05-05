@@ -5,24 +5,7 @@ Page({
     searchWord: "",
     searchShowed: false,
     status: 0,// 状态，todo为0，doing为1
-    tasks: [
-      {
-      id: 0,
-      title: "任务一",
-      content: "明天周六记得按时到考场考研明天周六记得按时到考场考研",
-      groupName: "软件开发15-01",
-      time: "2018-12-21 16:35",
-      isRead: false,
-    },
-      {
-        id: 1,
-        title: "任务二",
-        content: "明天周六记得按时到考场考研明天周六记得按时到考场考研",
-        groupName: "软件开发15-01",
-        time: "2018-12-21 16:35",
-        isRead: false,
-      },
-    ],
+    tasks: [],
     unReadNum: 0,
   },
 

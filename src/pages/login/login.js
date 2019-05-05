@@ -44,4 +44,11 @@ Page({
       }
     })
   },
+
+  phonelogin:function(e){
+    wx.navigateTo({
+      url: '/pages/login/phone/phone',
+    })
+  },
+
 })

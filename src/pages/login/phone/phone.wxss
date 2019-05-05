@@ -1,0 +1,33 @@
+/* pages/login/login.wxss */
+
+.login-center {
+  margin: 30rpx;
+}
+.phone-input {
+  margin-top: 50rpx;
+}
+.password-input {
+  margin-top: 1rpx;
+}
+input {
+  flex-grow: 1;
+  min-height:10.4rem;
+}
+.weui-input{
+  min-height:3.4rem;
+}
+
+.wxloginBtn {
+  margin-top: 150rpx;
+  background: #FFCC33;
+  color: white;
+  font-size: 38rpx;
+}
+
+.phoneloginBtn {
+  margin-top: 30rpx;
+  background: #FFFFFF;
+  color: #FFCC33;
+  font-size: 38rpx;
+  border:1px solid #FFCC33;
+}

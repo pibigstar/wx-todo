@@ -34,6 +34,13 @@
                           </view>
                           <view class="weui-cell__ft weui-cell__ft_in-access"></view>
                       </navigator>
+                      <navigator url="../group/join/join" class="weui-cell weui-cell_access">
+                        <view class="weui-cell__hd"><image src='../../images/addGroup.png' class="me-icon"></image></view>
+                        <view class="weui-cell__bd weui-cell_primary">
+                            <text class='text-info'>加入组织</text>
+                        </view>
+                        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                    </navigator>
                   </view>
               </view>
           </view>
@@ -59,10 +66,10 @@
                         </view>
                         <view class="weui-cell__ft weui-cell__ft_in-access"></view>
                     </navigator>
-                    <navigator url="../group/join/join" class="weui-cell weui-cell_access">
-                        <view class="weui-cell__hd"><image src='../../images/addGroup.png' class="me-icon"></image></view>
+                    <navigator url="../task/data/data" class="weui-cell weui-cell_access">
+                        <view class="weui-cell__hd"><image src='../../images/data.png' class="me-icon"></image></view>
                         <view class="weui-cell__bd weui-cell_primary">
-                            <text class='text-info'>加入组织</text>
+                            <text class='text-info'>任务总览</text>
                         </view>
                         <view class="weui-cell__ft weui-cell__ft_in-access"></view>
                     </navigator>

@@ -3,6 +3,6 @@
 <image src='../../images/todo.png' class='index-image'></image>
 
  <button class='wxloginBtn' open-type='getUserInfo' bindgetuserinfo='doLogin'>微信登录</button>
- <button class='phoneloginBtn' >手机号登录/注册</button>
+ <button class='phoneloginBtn' bindtap='phonelogin' >手机号登录/注册</button>
 
 </view>

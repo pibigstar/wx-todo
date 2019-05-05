@@ -36,8 +36,8 @@ App({
   globalData: {
     userInfo: null,
     //host:"http://127.0.0.1:7410/",
-    //host:"https://127.0.0.1:443/",
+    host:"https://127.0.0.1:443/",
     //host: "http://139.199.64.253:7410/",
-    host: "https://todo.pibigstar.com/"
+    //host: "https://todo.pibigstar.com/"
   }
 })

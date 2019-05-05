@@ -16,6 +16,7 @@ Page({
     realName: "",
     gender: "0",
     phone: "",
+    password:"",
     receiveRemind: true,
   },
 
@@ -43,6 +44,11 @@ Page({
       gender: e.detail.value
     });
 
+  },
+  bindPasswordInput: function(e){
+    this.setData({
+      password: e.detail.value
+    })
   },
   // 接收任务提醒改变
   receiveRemindChange: function(e){
@@ -86,6 +92,7 @@ Page({
         realName: user.RealName,
         gender: user.Gender,
         phone: user.Phone,
+        password: user.Password,
       })
       let gender = user.Gender;
       let radioItems = this.data.radioItems;
@@ -99,7 +106,7 @@ Page({
   },
   // 更新用户信息
   updateUsserInfo: function(e){
-    let { nickName,realName,gender,phone,receiveRemind } = this.data;
+    let { nickName, realName, gender, phone,password,receiveRemind } = this.data;
     if(nickName == ""){
       util.showErrorMessage("昵称不能为空");
       return;
@@ -109,6 +116,7 @@ Page({
       "realName": realName,
       "gender": gender,
       "phone": phone,
+      "password": password,
     }, e.detail.formId).then(data => {
       if (data.Code == 200) {
         util.showSuccessMessage("更新成功");

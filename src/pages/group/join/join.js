@@ -70,7 +70,8 @@ Page({
   },
 
   // 加群
-  joinGroup: function () {
+  joinGroup: function (e) {
+    console.log(e.detail.formId);
     let group = this.data.group;
     let { answer, groupCode } = this.data;
     util.apiRequest("group/join", "post", {
@@ -78,9 +79,11 @@ Page({
       joinMethod: group.joinMethod,
       answer: answer,
       groupCode: groupCode,
-    }).then(data => {
+    },e.detail.formId).then(data => {
       if (data.Code == 200) {
         console.log("加入成功")
+      }else{
+        util.showErrorMessage(data.Msg)
       }
     })
   },

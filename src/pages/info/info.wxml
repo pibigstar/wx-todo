@@ -47,7 +47,15 @@
                   </picker>
                 </view>
                 <view class="weui-cell__bd weui-cell__bd_in-select-before">
-                  <input class="weui-input" bindinput='bindPhoneInput' value='{{phone}}' placeholder="请输入号码" />
+                  <input class="weui-input" bindinput='bindPhoneInput' value='{{phone}}' placeholder="请输入收集号" />
+                </view>
+            </view>
+      </view>
+            <view class="weui-cells__title">密码</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__bd weui-cell__bd_in-select-before">
+                  <input class="weui-input" type='password' bindinput='bindPasswordInput' value='{{password}}' placeholder="请输入密码" />
                 </view>
             </view>
       </view>

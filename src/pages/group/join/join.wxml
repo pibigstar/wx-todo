@@ -57,7 +57,9 @@
               </view>
             </view>
           <view class="weui-btn-area">
-            <button class="weui-btn" type="primary" bindtap="joinGroup">加入该组织</button>
+            <form bindsubmit="joinGroup" report-submit="true">
+              <button class="weui-btn" type="primary" formType="submit">加入该组织</button>
+            </form>
           </view>
         </view>
         <!-- 没有结果提醒 -->

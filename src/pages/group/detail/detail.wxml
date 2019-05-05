@@ -1,0 +1,84 @@
+<view class='page'>
+  <view class="page__bd">
+   <view class="weui-cells__title">组织ID</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+          <view class="weui-cell__bd">
+              <view class="">{{group.id}}</view>
+          </view>
+      </view>
+    </view>
+    <view class="weui-cells__title">组织名</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+          <view class="weui-cell__bd">
+              <view class="">{{group.groupName}}</view>
+          </view>
+      </view>
+    </view>
+    <view class="weui-cells__title">组织描述</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+              {{group.groupDescribe}}
+          </view>
+        </view>
+      </view>
+
+    <view wx:if="{{group.joinMethod == '1'}}" class="weui-cells__title">组织加入方式：输入秘钥</view>
+    <view wx:if="{{group.joinMethod == '2'}}" class="weui-cells__title">组织加入方式：回答问题</view>
+
+    <view wx:if="{{group.joinMethod == '1'}}">
+      <view class="weui-cell">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">秘钥:</view>
+        </view>
+        <view class="weui-cell__bd">
+           {{group.groupCode}}
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{group.joinMethod == '2'}}">
+    <view class="weui-cell">
+      <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <view class="weui-label">问题:</view>
+      </view>
+      <view class="weui-cell__bd">
+        {{group.question}}
+      </view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <view class="weui-label">答案:</view>
+      </view>
+      <view class="weui-cell__bd">
+         {{group.answer}}
+      </view>
+    </view>
+    </view>
+
+    <view class="weui-cells__title">组织其他信息</view>
+    <view class="weui-cell">
+      <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <view class="weui-label">创建者:</view>
+      </view>
+      <view class="weui-cell__bd">
+         {{group.createUser}}
+      </view>
+    </view>
+
+    <view class="weui-cell">
+      <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <view class="weui-label">创建时间:</view>
+      </view>
+      <view class="weui-cell__bd">
+          {{group.createTime}}
+      </view>
+    </view>
+
+  </view>
+</view>
+
+<view class="weui-footer">
+  <view class="weui-footer__text">Copyright © 2019-2020 todo</view>
+</view>

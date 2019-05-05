@@ -13,7 +13,10 @@
     "pages/test/charts/charts",
     "pages/test/template/template",
     "pages/info/info",
-    "pages/group/list/list"
+    "pages/group/list/list",
+    "pages/group/detail/detail",
+    "pages/task/data/data",
+    "pages/login/phone/phone"
   ],
   "window": {
     "navigationBarTextStyle": "black",
