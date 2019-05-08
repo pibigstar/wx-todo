@@ -40,9 +40,9 @@ const apiRequest = (url, method, data) => {
 };
 
 ```
-#### 使用
+### 使用
 
-```html
+```javascript
 // 引入util
 const util = require("../../utils/util.js")
 
