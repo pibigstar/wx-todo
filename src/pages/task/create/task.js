@@ -122,7 +122,7 @@ Page({
   },
 
   // 任务创建
-  createTask: function(){
+  createTask: function(e){
     let { title, isAll, content, isRemind, remindAfterFin, groupIndex,
      memberIndex, groupObjects,memberObjects,assign,endTime } = this.data;
     if(memberIndex == -1){
@@ -131,6 +131,10 @@ Page({
     if(title == ""){
       util.showErrorMessage("标题不能为空")
       return;
+    }
+    if (groupIndex===-1){
+        util.showErrorMessage("必须选择一个组织")
+        return;
     }
     let groupId = groupObjects[groupIndex].ID;
     let groupName = groupObjects[groupIndex].GroupName;
@@ -150,7 +154,7 @@ Page({
       "groupId": groupId,
       "groupName": groupName,
       "completionTime": endTime,
-    }).then(data => {
+    }, e.detail.formId).then(data => {
       console.log(data)
       wx.showModal({
         title: '提示',

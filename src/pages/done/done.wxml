@@ -53,9 +53,9 @@
           <image src='../../images/tabBar/doing.png'></image>
           <span data-id="{{item.id}}" bindtap="handleDeleteProduct">doing</span>
         </view>
-        <view class="doneBtn" data-id="{{item.id}}"  data-type="done" bindtap="changeStatus">
+        <view class="doneBtn" data-id="{{item.id}}"  data-type="close" bindtap="changeStatus">
           <image src='../../images/tabBar/done.png'></image>
-          <span data-id="{{item.id}}" bindtap="handleDeleteProduct">done</span>
+          <span data-id="{{item.id}}" bindtap="handleDeleteProduct">close</span>
         </view>
         <view class='line'></view>
         </view>

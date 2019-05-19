@@ -15,13 +15,30 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  
+  onShow: function(){
+      let token = wx.getStorageSync("token");
+      let user = wx.getStorageSync("user");
+      let expired = wx.getStorageSync("expired");
+      if (token) {
+          app.globalData.userInfo = user;
+          let now = new Date();
+          if (expired && now.getTime() > expired.getTime()) {
+              wx.showModal({
+                  title: '提示',
+                  content: '你的身份信息已过期，请重新登录',
+              })
+          } else {
+              wx.switchTab({
+                  url: '/pages/todo/todo',
+              })
+          }
+      }
   },
 
   doLogin: function (e) {
     // 获取用户信息
     app.globalData.userInfo = e.detail.userInfo
+    wx.setStorageSync("user", e.detail.userInfo);
     wx.login({
       success(res) {
         if (res.code) {

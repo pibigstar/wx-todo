@@ -65,7 +65,17 @@ function setToken(key,data){
     key: key,
     data: data,
   })
+  // 过期时间
+ wx.setStorageSync("expired", addDay(7));
 }
+
+function addDay(data){
+    var timestamp = Date.parse(new Date());
+    var newTimestamp = timestamp + data * 24 * 60 * 60 * 1000;
+    var date = new Date(newTimestamp);
+    return date;
+}
+
 // 跳转到登录页面
 function toLogin(){
   wx.navigateTo({
