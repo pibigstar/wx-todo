@@ -5,8 +5,8 @@
 
 ![个人页面](https://github.com/pibigstar/wx-todo/blob/master/screenshot/me.png)
 ![todo列表](https://github.com/pibigstar/wx-todo/blob/master/screenshot/todo.png)
-![todo列表](https://github.com/pibigstar/wx-todo/blob/master/screenshot/todo2.png)
-![todo列表](https://github.com/pibigstar/wx-todo/blob/master/screenshot/task.png)
+![左滑修改](https://github.com/pibigstar/wx-todo/blob/master/screenshot/todo2.png)
+![任务总览](https://github.com/pibigstar/wx-todo/blob/master/screenshot/task.png)
 
 ## API接口封装
 
