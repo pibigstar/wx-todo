@@ -23,6 +23,16 @@
         </view>
       </view>
 
+    <view class="weui-cells__title">附件</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+             <button class="weui-btn" type='primary' bindtap='uploadImg' style='width:100%' plain="true">上传附件</button>
+             <image class="comment-img" src="{{item}}" wx:for="{{images}}" wx:key="{{index}}"></image>
+          </view>
+        </view>
+      </view>
+
     <view class="weui-cells__title">任务其他信息</view>
     <view class="weui-cell weui-cell_select">
       <view class="weui-cell__hd weui-cell__hd_in-select-after">

@@ -22,7 +22,7 @@
 		"nodeModules": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.2",
+	"libVersion": "2.7.0",
 	"appid": "wx8b3637af0295daed",
 	"projectname": "wx-todo",
 	"isGameTourist": false,

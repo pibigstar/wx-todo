@@ -1,1 +1,6 @@
-/* pages/task/create/task.wxss */
+.comment-img{
+  width: 200rpx;
+  height: 200rpx;
+  margin-right: 20rpx;
+  margin-top: 10rpx;
+}

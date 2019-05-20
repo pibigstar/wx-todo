@@ -16,6 +16,15 @@
           </view>
         </view>
       </view>
+      
+    <view wx:if="{{images.length>0}}">
+        <view  class="weui-cells__title">附件</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <image class="comment-img" src="{{item}}" wx:for="{{images}}" wx:key="{{index}}"></image>
+            </view>
+        </view>
+    </view>
 
     <view class="weui-cells__title">任务其他信息</view>
     <view class="weui-cell">
