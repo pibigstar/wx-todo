@@ -12,7 +12,8 @@
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell">
           <view class="weui-cell__bd">
-              {{task.content}}
+               <editor id="editor" class="ql-container" read-only placeholder="{{placeholder}}"   bindready="onEditorReady">
+            </editor>
           </view>
         </view>
       </view>

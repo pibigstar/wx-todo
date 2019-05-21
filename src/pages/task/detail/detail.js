@@ -20,7 +20,6 @@ Page({
     this.getTask(options.id);
   },
 
-
   getTask: function(id){
     wx.showLoading({
         title: '加载中',
@@ -31,6 +30,18 @@ Page({
         this.setData({
             task: task
         })
+        // 编辑器初始化完成  
+        let html = this.data.task.html;
+        let content = this.data.task.content;
+        if(!html){
+            html = content;
+        }
+        wx.createSelectorQuery().select('#editor').context(res => {
+            this.editorCtx = res.context
+            this.editorCtx.setContents({
+                html: html,
+            })
+        }).exec()
         if(task.fileIds && task.fileIds.length!==0){
             let promiseArr = [];
             for(let i=0;i<task.fileIds.length;i++){

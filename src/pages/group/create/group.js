@@ -11,6 +11,7 @@ Page({
       { name: '回答问题', value: '2' }
     ],
     hidden: true,
+    length: 0,
   },
   joinGroupChange: function (e) {
     console.log(e.detail.value)
@@ -49,6 +50,11 @@ Page({
   bindGroupDescribeInput: function(e) {
     this.setData({
       groupDescribe: e.detail.value,
+    })
+    let groupDescribe = this.data.groupDescribe
+    let length = groupDescribe.length;
+    this.setData({
+        length: length,
     })
   },
   bindQuestionInput: function(e) {

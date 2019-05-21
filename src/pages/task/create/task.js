@@ -7,6 +7,7 @@ Page({
   data: {
     title: "",
     content: "",
+    html: "",
     isRemind: true,
     remindAfterFin: true,
     groups: [],
@@ -20,6 +21,7 @@ Page({
     isAll: false,
     images: [],
     fileIds: [],
+    length: 0,
   },
   /**
    * 生命周期函数--监听页面加载
@@ -93,8 +95,11 @@ Page({
     })
   },
   bindContentInput: function(e){
+    let length = this.data.length;
+    length++;
     this.setData({
-      content: e.detail.value
+      content: e.detail.value,
+      length: length,
     })
   },
 
@@ -126,7 +131,7 @@ Page({
 
   // 任务创建
   createTask: function(e){
-    let { title, isAll, content, isRemind, remindAfterFin, groupIndex,
+      let { title, isAll, content, html, isRemind, remindAfterFin, groupIndex,
      memberIndex, groupObjects,memberObjects,assign,endTime } = this.data;
     if(memberIndex == -1){
       isAll = true;
@@ -176,6 +181,7 @@ Page({
         util.apiRequest("task/create","post",{
         "taskTitle": title,
         "taskContent": content,
+        "taskHtml": html,
         "isRemind": isRemind,
         "remindAfterFin": remindAfterFin,
         "isAll": isAll,
@@ -219,6 +225,60 @@ Page({
                     images: this.data.images.concat(tempFilePaths)
                 });
             }
+        })
+    },
+
+    // 富文本编辑器相关函数
+    contentChange(e) {
+        this.setData({
+            content: e.detail.text, 
+            html: e.detail.html,
+        })
+    },
+
+    // 编辑器初始化完成
+    onEditorReady() {
+        wx.createSelectorQuery().select('#editor').context(res => {
+            this.editorCtx = res.context
+            this.editorCtx.setContents({
+                html: ""
+            })
+        }).exec()
+    },
+
+    //撤销
+    undo() {
+        this.editorCtx.undo()
+    },
+    //回滚
+    redo() {
+        this.editorCtx.redo()
+    },
+    // 调整格式，粗，斜，下划线
+    format(e) {
+        let { name, value } = e.target.dataset
+        if (!name) {
+            return
+        }
+        console.log('format', name, value)
+        this.editorCtx.format(name, value)
+
+    },
+    // 格式状态改变
+    onStatusChange(e) {
+        const formats = e.detail
+        this.setData({ formats })
+    },
+
+    removeFormat() {
+        this.editorCtx.removeFormat()
+    },
+    //插入日期
+    insertDate() {
+        const date = new Date()
+        const formatDate = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`
+        this.editorCtx.insertText({
+            text: formatDate
         })
     },
 
