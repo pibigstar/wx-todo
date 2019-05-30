@@ -19,14 +19,15 @@
         </view>
 
         <!-- 搜索结果展示 -->
-        <view class="weui-cells searchbar-result" wx:if="{{group.groupId!=undefined}}">
+        <view  class="searchbar-result" wx:if="{{group.groupId!=undefined}}">
+        <view class="weui-cells">
             <view class="weui-cell__bd">
                <view class="weui-media-box weui-media-box_text">
                     <view class="weui-media-box__title weui-media-box__title_in-text">{{group.groupName}}</view>
                     <view class="weui-media-box__desc">{{group.groupDescribe}}</view>
                 </view>
             </view>
-
+        
             <view>
               <view wx:if="{{group.joinMethod == '1'}}" class="weui-cells__title">组织加入方式：输入秘钥</view>
               <view wx:if="{{group.joinMethod == '2'}}" class="weui-cells__title">组织加入方式：回答问题</view>
@@ -61,6 +62,7 @@
               <button class="weui-btn" type="primary" formType="submit">加入该组织</button>
             </form>
           </view>
+        </view>
         </view>
         <!-- 没有结果提醒 -->
          <view class="no-result" wx:if="{{noResult}}">

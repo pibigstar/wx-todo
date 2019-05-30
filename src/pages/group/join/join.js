@@ -8,6 +8,19 @@ Page({
     answer: "",
     groupCode: "",
   },
+  onLoad: function(options){
+      //开启分享
+      wx.showShareMenu({
+          // 要求小程序返回分享目标信息
+          withShareTicket: true
+      });
+      if(options.id!==undefined) {
+          this.setData({
+              inputVal: options.id
+          })
+          this.searchGroup()
+      }
+  },
 
   showInput: function () {
     this.setData({
@@ -87,7 +100,24 @@ Page({
       }
     })
   },
-
+    /* 转发*/
+    onShareAppMessage: function (ops) {
+        let title = this.data.group.groupName;
+        let id = this.data.inputVal;
+        return {
+            title: title,
+            path: `pages/group/join/join?id=${id}`,
+            success: function (res) {
+                // 转发成功
+                console.log("转发成功:" + JSON.stringify(res));
+                var shareTickets = res.shareTickets;
+            },
+            fail: function (res) {
+                // 转发失败
+                console.log("转发失败:" + JSON.stringify(res));
+            }
+        }
+    },
 
 
 });

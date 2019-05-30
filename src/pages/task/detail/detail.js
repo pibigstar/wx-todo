@@ -18,6 +18,11 @@ Page({
       id: options.id,
     })
     this.getTask(options.id);
+    //开启分享
+    wx.showShareMenu({
+        // 要求小程序返回分享目标信息
+        withShareTicket: true
+    }); 
   },
 
   getTask: function(id){
@@ -70,6 +75,24 @@ Page({
             wx.hideLoading();
         }
     })
-  }
+  },
+    /* 转发*/
+    onShareAppMessage: function (ops) {
+        let title = this.data.task.title;
+        let id = this.data.id;
+        return {
+            title: title,
+            path: `pages/task/detail/detail?id=${id}`,
+            success: function (res) {
+                // 转发成功
+                console.log("转发成功:" + JSON.stringify(res));
+                var shareTickets = res.shareTickets;
+            },
+            fail: function (res) {
+                // 转发失败
+                console.log("转发失败:" + JSON.stringify(res));
+            }
+        }
+    },
 
 })

@@ -8,7 +8,6 @@ Page({
     tasks: [],
     unReadNum: 0,
   },
-
   onShow: function(){
     let status = this.data.status;
     this.listTask("", status);
@@ -90,6 +89,4 @@ Page({
     }
     return status;
   },
- 
-
 })
