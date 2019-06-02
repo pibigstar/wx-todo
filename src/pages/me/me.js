@@ -24,4 +24,12 @@ Page({
     })
   },
 
+    signout: function () {
+        wx.removeStorageSync("user")
+        wx.removeStorageSync("token")
+        wx.navigateTo({
+            url: '/pages/login/login',
+        })
+    }
+
 })

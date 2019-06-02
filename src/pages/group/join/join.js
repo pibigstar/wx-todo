@@ -92,9 +92,21 @@ Page({
       joinMethod: group.joinMethod,
       answer: answer,
       groupCode: groupCode,
+      groupName: group.groupName,
     },e.detail.formId).then(data => {
       if (data.Code == 200) {
-        console.log("加入成功")
+          wx.showModal({
+              title: '成功',
+              content: '加入成功',
+              showCancel:false,
+              success(res) {
+                  if (res.confirm) {
+                     wx.switchTab({
+                         url: '/pages/me/me',
+                     })
+                  } 
+              }
+          })
       }else{
         util.showErrorMessage(data.Msg)
       }

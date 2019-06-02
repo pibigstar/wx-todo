@@ -2,11 +2,11 @@
   <view class="page__bd">
       <view class='weui-panel'>
           <view class="page_hd">
-              <view>
-                <image class='me_avatar' src='{{userInfo.avatarUrl}}'></image>
+              <view class='me_avatar'>
+                <open-data class='userInfo' type="userAvatarUrl"  bindgetuserinfo="onGotUserInfo"></open-data>
               </view>
               <view class="me_nickName">
-                <text>{{userInfo.nickName}}</text>
+                <open-data class="username" type="userNickName"></open-data>
               </view>
               <view class='me_phone'>
                <text>159****0174</text>
@@ -81,7 +81,7 @@
         <view class="weui-panel__bd">
             <view class="weui-media-box weui-media-box_small-appmsg">
                 <view class="weui-cells weui-cells_in-small-appmsg">
-                    <navigator url="../login/login" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                    <navigator url="" bindtap='signout' class="weui-cell weui-cell_access" hover-class="weui-cell_active">
                         <view class="weui-cell__hd"><image src='../../images/change.png' class="me-icon"></image></view>
                         <view class="weui-cell__bd weui-cell_primary">
                             <view>

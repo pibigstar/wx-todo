@@ -9,7 +9,11 @@
   width: 150rpx;
   height: 150rpx;
   background-color: #eee;
-  border-radius: 85rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  background: yellow;
+  left: 8rpx;
 }
 .me_nickName {
   margin-left: 20rpx;
