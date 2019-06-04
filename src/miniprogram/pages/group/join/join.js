@@ -9,6 +9,24 @@ Page({
     groupCode: "",
   },
   onLoad: function(options){
+      //扫码进群
+      let scene = decodeURIComponent(options.scene)
+      this.setData({
+          inputVal: scene,
+      });
+
+      if(scene){
+          console.log(scene);
+          util.apiRequest("group/info", "get", { "groupId": id }).then(data => {
+              console.log(data)
+              this.setData({
+                  group: data.Data,
+                  groupCode: data.Data.groupCode,
+                  answer: data.Data.answer,
+              })
+              this.joinGroup();
+          })
+      }
       //开启分享
       wx.showShareMenu({
           // 要求小程序返回分享目标信息

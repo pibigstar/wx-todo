@@ -76,6 +76,9 @@
       </view>
     </view>
 
+    <view class="weui-btn-area">
+        <button class="weui-btn" type="primary" bindtap='genderQR'>生成分享码</button>
+    </view>
   </view>
 </view>
 

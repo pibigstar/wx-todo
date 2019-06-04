@@ -155,7 +155,7 @@ Page({
               let item = this.data.images[i];
               let suffix = /\.\w+$/.exec(item)[0]; // 正则表达式，返回文件扩展名
               wx.cloud.uploadFile({
-                  cloudPath: new Date().getTime() + suffix, // 上传至云端的路径
+                  cloudPath: `task/${new Date().getTime()}.${suffix}`, // 上传至云端的路径
                   filePath: item, // 小程序临时文件路径
                   success: res => {
                       // 返回文件 ID
