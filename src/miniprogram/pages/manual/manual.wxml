@@ -1,0 +1,29 @@
+<view class="container">
+
+  <view class="guide">
+    <text class="headline">初始登录</text>
+    <text class="p">1. 使用微信登录</text>
+    <text class="p">2. 进入到我的信息，修改个人手机号和密码</text>
+  </view>
+
+ <view class="guide">
+    <text class="headline">组织操作</text>
+    <text class="p">1. 创建个人组织</text>
+    <text class="p">2. 进入到我们组织页面，查看刚创建好的组织</text>
+    <text class="p">3. 进入到组织详情，生成分享码</text>
+    <text class="p">4. 将分享码发给别人， 别人扫码即可进群</text>
+  </view>
+
+ <view class="guide">
+    <text class="headline">任务操作</text>
+    <text class="p">1. 创建任务</text>
+    <text class="p">2. 填写任务详情</text>
+    <text class="p">3. 选择组织与指派人</text>
+    <text class="p">4. 收到任务后可通过左滑方式将任务移到doing页</text>
+  </view>
+
+<button class='costomer-btn' open-type="contact" type='primary'>
+    意见与反馈
+</button>
+
+</view>

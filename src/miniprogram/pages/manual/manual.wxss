@@ -1,0 +1,10 @@
+@import "../../style/guide.wxss";
+
+.container{
+    margin-top: -200rpx;
+}
+
+.costomer-btn{
+    margin-top: 20rpx;
+    width: 80%;
+}

@@ -3,38 +3,36 @@ Page({
   data: {
     searchShowed: false,
     inputVal: "",
-    group: {},
+    group: null,
     noResult: false,
     answer: "",
     groupCode: "",
   },
   onLoad: function(options){
       //扫码进群
-      let scene = decodeURIComponent(options.scene)
-      this.setData({
-          inputVal: scene,
-      });
-
-      if(scene){
-          console.log(scene);
-          util.apiRequest("group/info", "get", { "groupId": id }).then(data => {
-              console.log(data)
-              this.setData({
-                  group: data.Data,
-                  groupCode: data.Data.groupCode,
-                  answer: data.Data.answer,
-              })
-              this.joinGroup();
-          })
-      }
-      //开启分享
-      wx.showShareMenu({
-          // 要求小程序返回分享目标信息
-          withShareTicket: true
-      });
-      if(options.id!==undefined) {
+      if(options.scene){
+          let scene = decodeURIComponent(options.scene)
           this.setData({
-              inputVal: options.id
+              inputVal: scene,
+              searchShowed: true,
+          });
+          if (scene) {
+              console.log(scene);
+              util.apiRequest("group/info", "get", { "groupId": scene }).then(data => {
+                  console.log(data)
+                  this.setData({
+                      group: data.Data,
+                      groupCode: data.Data.groupCode,
+                      answer: data.Data.answer,
+                  })
+                  this.joinGroup();
+              })
+          }
+      }
+      if(options.id) {
+          this.setData({
+              inputVal: options.id,
+              searchShowed: true,
           })
           this.searchGroup()
       }
@@ -102,16 +100,21 @@ Page({
 
   // 加群
   joinGroup: function (e) {
-    console.log(e.detail.formId);
+    let formId = null;
+    if(e){
+        console.log(e.detail.formId);
+        formId = e.detail.formId;
+    }
+    
     let group = this.data.group;
-    let { answer, groupCode } = this.data;
+    let { answer, groupCode,inputVal } = this.data;
     util.apiRequest("group/join", "post", {
-      groupId: group.groupId,
+      groupId: inputVal,
       joinMethod: group.joinMethod,
       answer: answer,
       groupCode: groupCode,
       groupName: group.groupName,
-    },e.detail.formId).then(data => {
+    }, formId).then(data => {
       if (data.Code == 200) {
           wx.showModal({
               title: '成功',

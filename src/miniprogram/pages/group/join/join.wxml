@@ -19,7 +19,7 @@
         </view>
 
         <!-- 搜索结果展示 -->
-        <view  class="searchbar-result" wx:if="{{group.groupId!=undefined}}">
+        <view  class="searchbar-result" wx:if="{{group}}">
         <view class="weui-cells">
             <view class="weui-cell__bd">
                <view class="weui-media-box weui-media-box_text">

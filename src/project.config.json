@@ -47,7 +47,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 14,
+			"current": 15,
 			"list": [
 				{
 					"id": -1,
@@ -85,7 +85,7 @@
 					"id": 5,
 					"name": "join",
 					"pathName": "pages/group/join/join",
-					"query": "id=24",
+					"query": "scene=21",
 					"scene": null
 				},
 				{
@@ -148,6 +148,13 @@
 					"id": -1,
 					"name": "costomer",
 					"pathName": "pages/test/costomer/costomer",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "manual",
+					"pathName": "pages/manual/manual",
 					"query": "",
 					"scene": null
 				}

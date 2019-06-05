@@ -1,3 +1,7 @@
     <button open-type="contact" bindcontact="onCustomerServiceButtonClick">
       进入客服消息
     </button>
+
+<button  bindtap="auth">
+    授权
+</button>

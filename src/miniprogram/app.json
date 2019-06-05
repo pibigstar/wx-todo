@@ -17,7 +17,8 @@
         "pages/group/detail/detail",
         "pages/task/data/data",
         "pages/login/phone/phone",
-        "pages/test/costomer/costomer"
+        "pages/test/costomer/costomer",
+        "pages/manual/manual"
     ],
     "window": {
         "navigationBarTextStyle": "black",
