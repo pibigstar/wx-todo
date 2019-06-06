@@ -1,0 +1,10 @@
+<button bindtap='openMysheet'>打开分享</button>
+
+<!-- 自定义ActionSheet组件 actionShow: 组件显隐状态 closeText:关闭按钮文字-->
+<action-sheet actionShow="{{actionShow}}" closeText="关闭" bind:actionHide="onActionHide">
+  <!-- 使用开放能力 -->
+  <button open-type="share">分享好友</button>
+  <navigator url="/pages/login/login">回首页</navigator>
+  <button bindtap="handleBtn">普通按钮</button>
+  
+</action-sheet>

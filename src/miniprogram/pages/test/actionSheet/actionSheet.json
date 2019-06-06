@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "自定义ActionSheet",
+    "usingComponents": {
+        "action-sheet": "../../components/actionsheet/index"
+    }
+}
